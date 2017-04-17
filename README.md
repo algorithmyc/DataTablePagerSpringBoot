@@ -1,5 +1,5 @@
 # DataTablePager #
-
+ORIGINAL AUTHOR AND CREDITS TO : https://bitbucket.org/davioooh/datatablepager/overview
 Java server-side pagination utility for DataTables jQuery plug-in.
 
 ### Notes ###
