@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/v/dt/jq-2.2.3/dt-1.10.12/datatables.css" />
+<script
+	src="https://cdn.datatables.net/v/dt/jq-2.2.3/dt-1.10.12/datatables.js">
+	
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#example').DataTable({
+			"processing" : true,
+			"serverSide" : true,
+			"columns" : [ // NOTE: you need to specify names of fields as ids for the columns
+			{
+				"data" : "id"
+			}, {
+				"data" : "name"
+			}, {
+				"data" : "age"
+			} ],
+			"ajax" : {
+				"url" : "/data",
+				"type" : "POST",
+				"contentType" : "application/json; charset=utf-8",
+				"data" : function(d) {
+					return JSON.stringify(d); // NOTE: you also need to stringify POST payload
+				}
+			}
+		});
+	});
+</script>
+</head>
+<body>
+	<table id="example" class="display">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Age</th>
+			</tr>
+		</thead>
+	</table>
+</body>
+</html>
